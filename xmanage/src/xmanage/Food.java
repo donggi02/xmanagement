@@ -1,5 +1,5 @@
 package xmanage;
 
-public class xmanage {
+public class Food {
 
 }
