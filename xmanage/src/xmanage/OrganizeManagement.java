@@ -3,24 +3,25 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class OrganizeManagement {
-	Organizing org = new Organizing();
+	ArrayList<CalculusFood> calculusfood = new ArrayList<>();
 	Scanner input = new Scanner(System.in);
 
 	OrganizeManagement()
 	{
-		
 	}
+	CalculusFood ccf = new CalculusFood();
 	
 	public void addFood()
 	{
 		System.out.println("이름을 입력하시오: ");
-		org.name.add(input.nextLine());
+		ccf.setName(input.nextLine());
 		System.out.println("음식 종류를 입력하시오: ");
-		org.type.add(input.nextLine());
+		ccf.setType(input.nextLine());
 		System.out.println("맵기 정도를 입력하시오: ");
-		org.spicness.add(input.nextLine());
+		ccf.setSpicness(input.nextLine());
 		System.out.println("");
-		org.count++;
+		
+		this.calculusfood.add(ccf);
 		
 	}
 	public void deleteFood()
@@ -28,12 +29,9 @@ public class OrganizeManagement {
 		Scanner input = new Scanner(System.in);
 		System.out.print("몇 번째 음식을 삭제 하시겠습니까?: ");
 		int num = input.nextInt();
-		if(num < org.count)
+		if(num < calculusfood.size())
 		{
-			org.name.remove(num);
-			org.type.remove(num);
-			org.spicness.remove(num);
-			org.count --;
+			calculusfood.remove(num);
 			System.out.println("음식이 삭제 되었습니다.");
 		}
 		else
@@ -46,21 +44,20 @@ public class OrganizeManagement {
 	{
 		System.out.println("몇 번째 음식을 수정하시겠습니까? : ");
 		int num = input.nextInt();
-		if(num > org.count)
+		if(num > calculusfood.size())
 		{
 			System.out.println("음식이 존재하지 않습니다. ");
 		}
 		else
 		{
 			System.out.println("음식 이름을 입력하시오 : ");
-			org.name.add(num, input.nextLine());
-			//이 부분 오류
-			input.nextLine();
+			ccf.setName(input.nextLine());
+			
 			System.out.print("음식 종류를 입력하시오 : ");
-			org.type.add(num, input.nextLine());
+			ccf.setType(input.nextLine());
 			
 			System.out.println("음식 맵기 정도를 입력하시오 : ");
-			org.spicness.add(num, input.nextLine());
+			ccf.setSpicness(input.nextLine());
 			
 			System.out.println("");
 		}
@@ -68,6 +65,9 @@ public class OrganizeManagement {
 	}
 	public void viewFood()
 	{
-		org.printInfo();
+		for(int i = 0; i < calculusfood.size(); i++)
+		{
+			calculusfood.get(i).printInfo();
+		}
 	}
 }

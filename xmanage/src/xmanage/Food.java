@@ -1,11 +1,32 @@
 package xmanage;
 
 public class Food {
-	public static void main(String args[]) {
-		System.out.println("1. Add food");
-		System.out.println("2. Delete food");
-		System.out.println("3. Edit food");
-		System.out.println("4. View food");
-		System.out.println("5. Exit");	
+	private String name;
+	private String type;
+	private String spicness;
+	
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+	public String getName()
+	{
+		return this.name;
+	}
+	public void setType(String tpye)
+	{
+		this.type = tpye;
+	}
+	public String getType()
+	{
+		return this.type;
+	}
+	public void setSpicness(String spicness)
+	{
+		this.spicness = spicness;
+	}
+	public String getSpicness()
+	{
+		return this.spicness;
 	}
 }

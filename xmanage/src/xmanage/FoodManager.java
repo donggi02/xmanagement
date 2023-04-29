@@ -39,6 +39,11 @@ public class FoodManager
 				
 				omm.viewFood();
 				break;
+			case 5:
+				continue;
+			default:
+				System.out.println("1-5 사이의 숫자를 고르시오");
+				System.out.println("");
 			}
 		
 		}
