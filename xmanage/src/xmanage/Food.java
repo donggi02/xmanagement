@@ -1,10 +1,21 @@
 package xmanage;
 
-public class Food {
+abstract public class Food {
 	private String name;
 	private String type;
 	private String spicness;
+	public Food() {}
 	
+
+    public static void FoodKind(String a) {
+        System.out.println(a);
+    }
+	public static void FoodKind(String a, String b)
+	{
+		System.out.println(a+ " "+ b);
+	}
+	
+
 	public void setName(String name)
 	{
 		this.name = name;
@@ -29,4 +40,5 @@ public class Food {
 	{
 		return this.spicness;
 	}
+	public abstract void printInfo();
 }
