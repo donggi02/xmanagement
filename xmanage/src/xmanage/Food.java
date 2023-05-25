@@ -1,6 +1,7 @@
 package xmanage;
-
-abstract public class Food {
+import java.io.Serializable;
+abstract public class Food implements Serializable{
+	private static final long serialVersionUID = -1219826540388449953L;
 	private String name;
 	private String type;
 	private String spicness;

@@ -1,9 +1,11 @@
 package xmanage;
-
-public class CalculusFood extends Food implements KindOfFood{
+import java.io.Serializable;
+public class CalculusFood extends Food implements KindOfFood, Serializable{
 	private String eat;
-	
-	public void setSubject() {}
+	private static final long serialVersionUID = 5533066819552575457L;
+	public void setSubject() {
+		this.eat = "Calculus"  ;
+	}
 	public String getSubject() {
 		return this.eat;
 	}
