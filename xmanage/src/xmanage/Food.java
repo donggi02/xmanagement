@@ -6,6 +6,7 @@ abstract public class Food implements Serializable{
 	private String type;
 	private String spicness;
 	public Food() {}
+
 	
 
     public static void FoodKind(String a) {
@@ -16,7 +17,7 @@ abstract public class Food implements Serializable{
 		System.out.println(a+ " "+ b);
 	}
 	
-
+	
 	public void setName(String name)
 	{
 		this.name = name;

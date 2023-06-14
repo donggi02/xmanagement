@@ -3,6 +3,9 @@ import java.io.Serializable;
 public class CalculusFood extends Food implements KindOfFood, Serializable{
 	private String eat;
 	private static final long serialVersionUID = 5533066819552575457L;
+	public CalculusFood(String name, String type, String spiciness) {
+		// TODO Auto-generated constructor stub
+	}
 	public void setSubject() {
 		this.eat = "Calculus"  ;
 	}

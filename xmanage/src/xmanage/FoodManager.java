@@ -1,5 +1,8 @@
 package xmanage;
 import java.util.Scanner;
+
+import gui.WindowFrame;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -16,16 +19,18 @@ public class FoodManager
 
 	public static void main(String args[])
 	{
-
+		
 		Scanner input = new Scanner(System.in);
 		OrganizeManagement omm = getObject("omm.ser");
 		if(omm == null) {
-		omm = new OrganizeManagement(input);
+			omm = new OrganizeManagement(input);
 		} else {
-		omm.input = input;
+			omm.input = input;
 		}
-		int i = 0;
+		WindowFrame frame = new WindowFrame(omm);
 		
+		int i = 0;
+
 		while(i != 5)
 		{
 			System.out.println("Food Management System");
@@ -35,18 +40,18 @@ public class FoodManager
 			System.out.println("4. View Food");
 			System.out.println("5. Exit");
 			System.out.println("Select one number in one to six");
-			
+
 			i = input.nextInt();
 			input.nextLine();
 			System.out.println(" ");
-			
+
 			switch(i) 
 			{
 			case 1:
 				omm.addFood();
 				logger.log("add a food");
 				break;
-			
+
 			case 2:
 				omm.deleteFood();
 				logger.log("delete a food");
@@ -56,7 +61,7 @@ public class FoodManager
 				logger.log("edit a food");
 				break;
 			case 4:
-				
+
 				omm.viewFood();
 				logger.log("view a food");
 				break;
@@ -65,43 +70,43 @@ public class FoodManager
 			default:
 				System.out.println("1-5 사이의 숫자를 고르시오");
 				System.out.println();
-			}putObject(omm, "omm.ser");
+			}
+			putObject(omm, "omm.ser");
 			System.out.println("End.");
-		
+
 		}
 	}
 	public static OrganizeManagement getObject(String filename) {
 		OrganizeManagement omm = null;
 		try {
-		FileInputStream file = new FileInputStream(filename);
-		
-		ObjectInputStream in = new ObjectInputStream(file);
-		
-		omm = (OrganizeManagement)in.readObject();
-		
-		in.close();
-		file.close();
-		
+			FileInputStream file = new FileInputStream(filename);
+			ObjectInputStream in = new ObjectInputStream(file);
+			omm = (OrganizeManagement)in.readObject();
+
+			in.close();
+			file.close();
+
 		} catch (FileNotFoundException e) {
-		return omm;
+			// omm = new OrganizeManagement(new Scanner(System.in));
+			//return omm;
 		} catch (IOException e) {
-		e.printStackTrace();
+			e.printStackTrace();
 		} catch (ClassNotFoundException e) 
 		{
-		e.printStackTrace();
+			e.printStackTrace();
 		}	return omm;
 	}
-		public static void putObject(OrganizeManagement omm, String filename) {
+	public static void putObject(OrganizeManagement omm, String filename) {
 		try {
-		FileOutputStream file = new FileOutputStream(filename);
-		ObjectOutputStream out = new ObjectOutputStream(file);
-		out.writeObject(omm);
-		out.close();
-		file.close();
+			FileOutputStream file = new FileOutputStream(filename);
+			ObjectOutputStream out = new ObjectOutputStream(file);
+			out.writeObject(omm);
+			out.close();
+			file.close();
 		} catch (FileNotFoundException e) {
-		e.printStackTrace();
+			e.printStackTrace();
 		} catch (IOException e) {
-		e.printStackTrace();
+			e.printStackTrace();
 		}
 	}
 

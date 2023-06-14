@@ -8,8 +8,13 @@ import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 import javax.swing.*;
 
-public class FoodAdder extends JFrame{
+public class FoodAdder extends JFrame {
+	
+	WindowFrame frame;
+	
 	public FoodAdder() {
+//		this.frame = frame;
+		
 		JPanel panel1 = new JPanel();
 		SpringLayout spl = new SpringLayout();
 		panel1.setLayout(spl);
@@ -32,14 +37,28 @@ public class FoodAdder extends JFrame{
 		panel1.add(labelFoodSpicness);
 		panel1.add(fieldFoodSpicness);
 		
-		panel1.add(new JButton("save"));
-		panel1.add(new JButton("cancel"));
+		JButton saveButton = new JButton("save");
+        panel1.add(saveButton);
+
+        JButton cancelButton = new JButton("cancel");
+        panel1.add(cancelButton);
+		saveButton.addActionListener(e -> {
+	            String foodName = fieldFoodName.getText();
+	            String foodKind = fieldFoodKind.getText();
+	            String foodSpicness = fieldFoodSpicness.getText();
+
+	            // 입력된 값들을 처리하는 로직을 작성합니다.
+	            // 예를 들어, 값들을 파일에 저장하거나 다른 객체에 전달할 수 있습니다.
+	            // 이 예시에서는 그냥 콘솔에 출력합니다.
+	            System.out.println("Food Name: " + foodName);
+	            System.out.println("Food Kind: " + foodKind);
+	            System.out.println("Food Spicness: " + foodSpicness);
+	        });
 	
 		SpringUtilities.makeCompactGrid(panel1, 4,2,6,6,6,6);
-		this.setSize(300,300);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		this.setContentPane(panel1);
+	
+		this.setSize(300,200);
+		this.add(panel1);
 		this.setVisible(true);
 	}
 }
